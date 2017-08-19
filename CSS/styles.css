@@ -2,14 +2,31 @@ body{
 	margin: 0;
 	padding: 0;
 }
+
+#logo{
+	margin-top: 10px;
+	margin-left: 10px;
+	width: 160px;
+}
+
 .background-shapes{
 	position: absolute;
-	background-color: grey;
-	top: 200px;
 	padding: 0;
 	margin: 0;
 }
 #body-square{
+	top: 210px;
+	background-color: #231f20;
 	width: 100%;
 	min-height: 500px;
+}
+
+#body-trapezoid {
+	top: 110px;
+	left: 110px;
+	border-bottom: 100px solid #231f20;
+	border-left: 140px solid transparent;
+	border-right: 0px solid transparent;
+	height: 0;
+	width: 100%;
 }
