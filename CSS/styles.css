@@ -130,6 +130,7 @@ h1{
 	width: calc(100% - 250px);
 }
 /*background above*/
+@media (min-width: 1024px){
 #side-text-container{
 	color: white;
 	display: inline-block;
@@ -138,21 +139,62 @@ h1{
 	vertical-align: top;
 	padding: 5px;
 	top: 80px;
-	min-height: 800px;
+	min-height: 100px;
 	width: 300px;
 	margin-left: 10px;
 	margin-right: 20px;
+	margin-bottom: 50px;
 }
-#slideshow{
+#home-animation{
 	display: inline-block;
 	position: relative;
 	z-index: 2;
 	width: 55vw;
 	height: 55vw;
 	margin-bottom: 200px;
-	margin-left: auto;
+	margin-top: 80px;
+	margin-left: 10px;
 	margin-right: auto;
 	background-color: white;
+	min-width: 320px;
+}
+}
+@media (max-width: 1024px){
+#side-text-container{
+	color: white;
+	display: inline-block;
+	border: 3px solid white;
+	position: relative;
+	vertical-align: top;
+	padding: 5px;
+	top: 80px;
+	min-height: 100px;
+	width: 80%;
+	text-align: center;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 50px;
+}
+#home-animation{
+	display: inline-block;
+	position: relative;
+	z-index: 2;
+	width: 80vw;
+	height: 80vw;
+	margin-bottom: 100px;
+	margin-top: 80px;
+	margin-left: 10%;
+	margin-right: auto;
+	background-color: white;
+}
+}
+
+.home-animation-links{
+	display: inline-block;
+	position: relative;
+	background-color: blue;
+	height: 100px;
+	width: 100px;
 }
 #contact-info-container{
 	position: relative;
@@ -167,4 +209,119 @@ h1{
 	margin-left: 10px;
 	margin-right: auto;
 	padding-right: 10px;
+	padding-bottom: 10px;
+}
+
+/*blackjack below this line*/
+#dealer{
+	margin-left: 25%;
+	border: 2px solid white;
+	position: absolute;
+	width: 50%;
+	height: 20%;
+}
+#dealer-total{
+	position: absolute;
+	bottom:0px;
+	color: white;
+}
+#left{
+	float: left;
+	top: 40%;
+	position: relative;
+	width: 40%;
+	height: 40%;
+	border: 2px solid white;
+	margin-left: 5px;
+}
+#right{
+	display: none;
+	float: right;
+	top: 40%;
+	position: relative;
+	width: 40%;
+	height: 40%;
+	border: 2px solid white;
+}
+#player-total-left{
+	z-index: 1;
+	position: absolute;
+	left:10px;
+	bottom:20%;
+	color: white;
+}
+#bet-text{
+	display: none;
+	z-index: 2;
+	top: 50%;
+	position: absolute;
+	color: blue;
+	font-size: 50px;
+}
+#game-text-left{
+	display: none;
+	left:7px;
+	z-index: 1;
+	position: absolute;
+	top: 50%;
+	width: 40%;
+	color: white;
+	background-color: red;
+	text-align: center;
+	font-size: 50px;
+}
+.cards-player{
+	margin-right: -20px;
+	position: relative;
+	bottom: 0px;
+	height: 80px;
+	width: 50px;
+	background-color: white;
+	border: 1px red solid;
+	float: left;
+}
+#table{
+	display: inline-block;
+	position: relative;
+	z-index: 2;
+	width: 55vw;
+	height: 55vw;
+	margin-bottom: 200px;
+	margin-top: 80px;
+	margin-left: 10px;
+	margin-right: auto;
+	background-color: green;
+	border: 5px solid white;
+	min-height: 600px;
+	min-width: 600px;
+	max-height: 800px;
+	max-width: 800px;
+}
+
+#hit{
+	z-index: 1;
+	color: white;
+	position: absolute;
+	bottom: 0px;
+	float: left;
+	height: 100px;
+	width: 50%;
+	background-color: blue;
+	text-align: center;
+	line-height: 70px;
+	cursor: pointer;
+}
+
+#stand{
+	z-index: 1;
+	color: white;
+	position: absolute;
+	bottom: 0px;
+	left:50%;
+	height: 100px;
+	width: 50%;
+	background-color: red;
+	text-align: center;
+	line-height: 70px;
+	cursor: pointer;
 }
