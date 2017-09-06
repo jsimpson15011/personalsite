@@ -2,10 +2,12 @@ var decks=1; //number of decks in game
 var shoeDone=0; //when this number reaches 48 a new shoe starts
 var hitButton= document.getElementById('hit');
 var table = document.getElementById('table');
+var playerBlackJack = false;
 var hasHighAce= false;
 var hasAce= false;
 var playerTotal=0;
 var gameTextLeft= document.getElementById('game-text-left');
+var dealer= document.getElementById('dealer');
 var h1 = {value: 1, suit:'heart',ace:true, index:0, drawn:0};
 var h2 = {value: 2, suit:'heart',ace:false, index:1, drawn:0};
 var h3 = {value: 3, suit:'heart',ace:false, index:2, drawn:0};
@@ -21,9 +23,6 @@ var hk = {value: 10, suit:'heart',ace:false, index:11, drawn:0};
 
 deal();
 hitButton.addEventListener('click',hit,false);
-function dealerHit(){
-	
-}
 
 function newCardValue(){
 		function randomInt(min,max){
@@ -185,6 +184,8 @@ function newCardValue(){
 function blackJack(){
 	var playerTotalDisplayLeft= document.getElementById('player-total-left');
 	playerTotalDisplayLeft.innerHTML = "Black Jack!";
+	playerBlackJack=true;
+	hitButton.innerHTML = 'DEAL';
 }
 
 function stand(){
@@ -196,6 +197,7 @@ function deal(){
 	playerTotal=0;
 	$('.cards-player').remove();
 	gameTextLeft.style.display='none';
+	dealerHit();
 	hit();
 	hit();
 	if (playerTotal==21) {
@@ -208,8 +210,10 @@ function hit(){
 	var newCard = document.createElement("div");
 	var left = document.getElementById('left');
 
-	if (playerTotal>21) { //if player is busted new hand.
+	if (playerTotal>21||playerBlackJack==true) { //if player is busted new hand.
 		hasAce=false;
+		hasHighAce=false;
+		playerBlackJack=false;
 		deal();
 		return;
 	}
@@ -244,10 +248,10 @@ function hit(){
 	newCard.classList.add('cards-player');
 	newCard.innerHTML = cardValue;
 	if (hasHighAce==false) {
-		playerTotalDisplayLeft.innerHTML = "Total: "+playerTotal+' '+hasHighAce;
+		playerTotalDisplayLeft.innerHTML = "Total: "+playerTotal;
 	}
 	if (hasHighAce==true&&playerTotal!=21) {
-		playerTotalDisplayLeft.innerHTML = "Total: "+playerTotal+' or '+(playerTotal-10)+' '+hasHighAce;
+		playerTotalDisplayLeft.innerHTML = "Total: "+playerTotal+' or '+(playerTotal-10);
 	}
 	left.appendChild(newCard);
 	if (playerTotal>21) {
@@ -261,3 +265,28 @@ function hit(){
 	}
 }
 
+function dealerHit(){
+	var newCard = document.createElement("div");
+		newCardValue();
+	while (cardValue=='redraw') {
+		newCardValue();
+		if (shoeDone>=(48*decks)) {
+			h1.drawn=0;
+			h2.drawn=0;
+			h3.drawn=0;
+			h4.drawn=0;
+			h5.drawn=0;
+			h6.drawn=0;
+			h7.drawn=0;
+			h8.drawn=0;
+			h9.drawn=0;
+			hj.drawn=0;
+			hq.drawn=0;
+			hk.drawn=0;
+			shoeDone=0;
+		}
+	}
+	newCard.classList.add('cards-player');
+	newCard.innerHTML = cardValue;
+	dealer.appendChild(newCard);
+}
