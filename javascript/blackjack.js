@@ -46,14 +46,9 @@ function newCardValue(){
     			cardValue = h1.value;
     			hasHighAce = false;
     		}
-        	playerTotal+= cardValue;
-        	if (playerTotal>21) {
-        		playerTotal-=10;
-       	 	}
 
        	 	h1.drawn+=1;
        	 	shoeDone+=1;
-        	cardValue='a';
         	break;
     	case 1:
         	
@@ -62,7 +57,6 @@ function newCardValue(){
        	 		break;
        	 	}
        	 	cardValue = h2.value;
-        	playerTotal+= cardValue;
        	 	h2.drawn+=1;
        	 	shoeDone+=1;
         	break;
@@ -73,7 +67,6 @@ function newCardValue(){
        	 		break;
        	 	}
        	 	cardValue = h3.value;
-        	playerTotal+= cardValue;
        	 	h3.drawn+=1;
        	 	shoeDone+=1;
         	break;
@@ -84,7 +77,6 @@ function newCardValue(){
        	 		break;
        	 	}
        	 	cardValue = h4.value;
-        	playerTotal+= cardValue;
        	 	h4.drawn+=1;
        	 	shoeDone+=1;
         	break;
@@ -95,7 +87,6 @@ function newCardValue(){
        	 		break;
        	 	}
        	 	cardValue = h5.value;
-        	playerTotal+= cardValue;
        	 	h5.drawn+=1;
        	 	shoeDone+=1;
         	break;
@@ -106,7 +97,6 @@ function newCardValue(){
        	 		break;
        	 	}
        	 	cardValue = h6.value;
-        	playerTotal+= cardValue;
        	 	h6.drawn+=1;
        	 	shoeDone+=1;
         	break;
@@ -117,7 +107,6 @@ function newCardValue(){
        	 		break;
        	 	}
        	 	cardValue = h7.value;
-        	playerTotal+= cardValue;
        	 	h7.drawn+=1;
        	 	shoeDone+=1;
         	break;
@@ -128,7 +117,6 @@ function newCardValue(){
        	 		break;
        	 	}
        	 	cardValue = h8.value;
-        	playerTotal+= cardValue;
        	 	h8.drawn+=1;
        	 	shoeDone+=1;
         	break; 
@@ -139,7 +127,6 @@ function newCardValue(){
        	 		break;
        	 	}
        	 	cardValue = h9.value;
-        	playerTotal+= cardValue;
        	 	h9.drawn+=1;
        	 	shoeDone+=1;
         	break; 
@@ -150,7 +137,6 @@ function newCardValue(){
        	 		break;
        	 	}
        	 	cardValue = hj.value;
-        	playerTotal+= cardValue;
        	 	hj.drawn+=1;
        	 	shoeDone+=1;
         	break;
@@ -161,7 +147,6 @@ function newCardValue(){
        	 		break;
        	 	}
        	 	cardValue = hq.value;
-        	playerTotal+= cardValue;
        	 	hq.drawn+=1;
        	 	shoeDone+=1;
         	break;  
@@ -172,7 +157,6 @@ function newCardValue(){
        	 		break;
        	 	}
        	 	cardValue = hk.value;
-        	playerTotal+= cardValue;
        	 	hk.drawn+=1;
        	 	shoeDone+=1;
         	break;
@@ -241,11 +225,17 @@ function hit(){
 			shoeDone=0;
 		}
 	}
+	playerTotal+= cardValue;
+	
 	if (hasHighAce==true&&playerTotal>21) {
 		playerTotal-=10;
 		hasHighAce=false;
 	}
+	
 	newCard.classList.add('cards-player');
+	if (cardValue==11||cardValue==1) {
+		cardValue='A';
+	}
 	newCard.innerHTML = cardValue;
 	if (hasHighAce==false) {
 		playerTotalDisplayLeft.innerHTML = "Total: "+playerTotal;
