@@ -235,8 +235,9 @@ h1{
 	margin-left: 5px;
 }
 #right{
-	display: none;
+	display: block;
 	float: right;
+	margin-right: 5px;
 	top: 40%;
 	position: relative;
 	width: 40%;
@@ -244,6 +245,13 @@ h1{
 	border: 2px solid white;
 }
 #player-total-left{
+	z-index: 1;
+	position: absolute;
+	left:10px;
+	bottom:20%;
+	color: white;
+}
+#player-total-right{
 	z-index: 1;
 	position: absolute;
 	left:10px;
@@ -277,7 +285,17 @@ h1{
 	height: 80px;
 	width: 50px;
 	background-color: white;
-	border: 1px red solid;
+	border: 1px black solid;
+	float: left;
+}
+.cards-player-face-down{
+	margin-right: -20px;
+	position: relative;
+	bottom: 0px;
+	height: 80px;
+	width: 50px;
+	background-color: red;
+	border: 1px white solid;
 	float: left;
 }
 #table{
@@ -297,31 +315,74 @@ h1{
 	max-height: 800px;
 	max-width: 800px;
 }
-
+#split{
+	z-index: 1;
+	display: block;
+	color: white;
+	position: absolute;
+	bottom: 0px;
+	margin-left: 60%;
+	height: 90px;
+	width: 10%;
+	background-color: black;
+	text-align: center;
+	line-height: 70px;
+	cursor: pointer;
+}
+#double-down{
+	z-index: 1;
+	display: none;
+	color: white;
+	position: absolute;
+	left: 50%;
+	bottom: 0px;
+	height: 90px;
+	width: 10%;
+	background-color: darkgreen;
+	text-align: center;
+	cursor: pointer;
+}
 #hit{
+	display: none;
 	z-index: 1;
 	color: white;
 	position: absolute;
 	bottom: 0px;
 	float: left;
-	height: 100px;
-	width: 50%;
+	margin-left: 30%;
+	height: 90px;
+	width: 10%;
+	background-color: blue;
+	text-align: center;
+	cursor: pointer;
+}
+#deal{
+	display: block;
+	z-index: 2;
+	color: white;
+	position: absolute;
+	bottom: 0px;
+	float: left;
+	height: 90px;
+	width: 20%;
 	background-color: blue;
 	text-align: center;
 	line-height: 70px;
 	cursor: pointer;
 }
-
 #stand{
+	display: none;
 	z-index: 1;
 	color: white;
 	position: absolute;
 	bottom: 0px;
-	left:50%;
-	height: 100px;
-	width: 50%;
+	left:40%;
+	height: 90px;
+	width: 10%;
 	background-color: red;
 	text-align: center;
-	line-height: 70px;
 	cursor: pointer;
+}
+.active{
+	background-color: darkgreen;
 }
