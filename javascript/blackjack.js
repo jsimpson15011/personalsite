@@ -35,19 +35,6 @@ var hj = {value: 10, suit:'heart',ace:false, index:9, drawn:0};
 var hq = {value: 10, suit:'heart',ace:false, index:10, drawn:0};
 var hk = {value: 10, suit:'heart',ace:false, index:11, drawn:0};
 
-for (var i = 1; i < 101; i++) {
-  if(i%3==0) {
-    document.write("fizz");
-  }
-  if(i%5==0) {
-    document.write("buzz");
-  }
-  else if (i%3!=0) {
-  document.write(i);
-  }
-  document.write("</br>");
-}
-
 hitButton.addEventListener('click',hit,false);
 dealButton.addEventListener('click',deal,false);
 standButton.addEventListener('click',stand,false);

@@ -52,8 +52,8 @@ rel="stylesheet"/>
 		<nav class="navbar navbar-inverse">
 			<div class="container-fluid">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a> </li>
-					<li><a href="appshowcase.html"><span class="glyphicon glyphicon-wrench"></span> App Showcase</a></li>
+					<li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home</a> </li>
+					<li class="active"><a href="#"><span class="glyphicon glyphicon-wrench"></span> App Showcase</a></li>
 					<li><a class ="contact-button" href="contact.html"><span class="glyphicon glyphicon-user"></span> Contact</a></li>
 				</ul>
 			</div>
@@ -64,17 +64,14 @@ rel="stylesheet"/>
 			<div class="col-sm-1 col-md-0" id="side-nav">
 				<nav class="visible-sm visible-xs navbar-inverse">
 					<ul class="nav nav-pills nav-stacked">
-						<li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a> </li>
-						<li><a href="appshowcase.html"><span class="glyphicon glyphicon-wrench"></span> App Showcase</a></li>
+						<li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home</a> </li>
+						<li class="active"><a href="#"><span class="glyphicon glyphicon-wrench"></span> App Showcase</a></li>
 						<li><a href="contact.html" class="contact-button"><span class="glyphicon glyphicon-user"></span> Contact</a></li>
 					</ul>
-					<ul class="nav navbar-nav navbar-right">
-    					  
-    				</ul>	
 				</nav>
 			</div>
 			<div class="col-lg-4" id="side-text-container">
-				<img src="images/me.jpg" id="picture-of-me"><h1>Biography</h1>Self-starter who strives for perfection no matter the situation. Proven communication skills with over two years of experience with clients that demand only excellence. More than one year of self-taught web development skills coupled with four years of formal design education come together to create a developer ready to make an immediate impact. At the core of all this is an unquenchable thirst to always be learning and improving.<p><h2>Skills</h2>
+				<img src="images/me.jpg" id="picture-of-me"><h1>Biography</h1>Self-starter who strives for perfection no matter the situation. Proven communication skills with over two years of experience with clients that demand only excellence. More than one year of self-taught web development skills coupled with four years of formal design education come together to create a candidate ready to make an immediate impact. At the core of all this is an unquenchable thirst to always be learning and improving.<p><h2>Skills</h2>
 				<ul>
 					<h3>Web Development</h3>
 					<li>Over one year of self-taught experience with HTML, CSS, JavaScript, and jQuery.</li>
@@ -90,57 +87,21 @@ rel="stylesheet"/>
 				</ul>
 				</p>
 			</div>
-			<div id="home-animation">
-				<div id="home-animation-heading">
-					Project Showcase<br>
-					<div class="btn-group bordered">
-						<div class="home-animation-btn-title">Show:</div>
-						<button type="button" class="btn btn-primary home-animation-btn" id="animation-show-all">Everything</button>
-						<button type="button" class="btn btn-primary home-animation-btn" id="animation-show-design">Design</button>
-						<button type="button" class="btn btn-primary home-animation-btn" id="animation-show-development">Development</button>
-					</div>
-				</div>
-				<div class="home-animation-container home-animation-design">
-					<h3 class="home-animation-info">Title:
-					<p class="small-text">Dessert or Desert?</p>
-					Skills:<br>
-					<span class="small-text"> Photoshop, Digital Painting <br>
-					(Click to Learn More)</span></h3>
-					<img src="images/desertbubble.png" class="home-animation-links">
-				</div>
-				<div class="home-animation-container home-animation-development">
-					<h3 class="home-animation-info">Title: <br>
-						<p class="small-text"> Black Jack</p>
-						Skills:<br>
-						<span class="small-text">Javascript, Jquery <br>
-						(Click for More Info)</span></h3>
-					<img src="images/blackjackbubble.png" class="home-animation-links">
-				</div>
-				<div class="home-animation-container home-animation-design">
-					<h3 class="home-animation-info">Title: <br>
-						<p class="small-text"> Medary Creek Park</p>
-						Skills:<br>
-						<span class="small-text">Graphic Design, Photoshop <br>
-						(Click for More Info)</span></h3>
-					<img src="images/medarycreekparkbubble.png" class="home-animation-links">
-				</div>
-				<div class="home-animation-container home-animation-design">
-					<h3 class="home-animation-info">Title: <br>
-						<p class="small-text"> Avera Details</p>
-						Skills:<br>
-						<span class="small-text">Construction detailing, AutoCAD <br>
-						(Click for More Info)</span></h3>
-					<img src="images/averadetailsbubble.png" class="home-animation-links">
-				</div>
-				<div class="home-animation-container home-animation-development">
-					<h3 class="home-animation-info">Title: <br>
-						<p class="small-text"> Project Showcase</p>
-						Skills:<br>
-						<span class="small-text">Javascript, Jquery <br>
-						(Click for More Info)</span></h3>
-					<img src="images/personalsiteanimationbubble.png" class="home-animation-links">
-				</div>
-			</div>
+		<div id="table">
+			<div id="test">TEST</div>
+			<div id="dealer"><div id="dealer-total"></div></div>
+			<div id="bet-text">Place Your Bets. <br>Press Hit When Ready</div>
+			<div id="game-text-left">Bust</div>
+			<div id="player-total-left"></div>
+			<div id="left" class="active"></div>
+			<div id="player-total-right"></div>
+			<div id="right"></div>
+			<div id="split">SPLIT</div>
+			<div id="double-down">DOUBLE DOWN</div>
+			<div id="hit">HIT</div>
+			<div id="deal">DEAL</div>
+			<div id ="stand">STAND</div>
+		</div>
 		</div>
 			<div class="background-shapes" id="bottom-rectangle"></div>
 	</div>
@@ -149,6 +110,14 @@ rel="stylesheet"/>
 	</div>
 	<div id="grey-out" class="hidden"></div>
 </body>
-<script type="text/javascript" src="javascript/homeanimation.js"></script>
 <script type="text/javascript" src="javascript/showcontactform.js"></script>
+<script type="text/javascript" src="javascript/blackjack.js"></script>
+</body>
+
 </html>
+
+
+
+
+
+		
