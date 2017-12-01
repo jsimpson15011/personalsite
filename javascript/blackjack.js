@@ -1,3 +1,5 @@
+(function() {
+
 var test= document.getElementById('test');
 var mainHandActive= true;
 var playerHasSplit= false; 
@@ -10,6 +12,7 @@ var splitButton= document.getElementById('split');
 var dealButton= document.getElementById('deal');
 var doubleDownButton= document.getElementById('double-down');
 var table = document.getElementById('table');
+var playerTotalDisplayRight= document.getElementById('player-total-right');
 var splitButtonOn= false;
 var splitModeOn= false;
 var cardValue;
@@ -19,6 +22,7 @@ var hasAce= false;
 var dealerHasHighAce= false;
 var dealerHasAce= false;
 var playerTotal=0;
+var playerTotalRight=null;
 var dealerTotal=0;
 var gameTextLeft= document.getElementById('game-text-left');
 var dealer= document.getElementById('dealer');
@@ -178,7 +182,7 @@ function blackJack(){
   standButton.style.display= 'none';
 	hitButton.style.display = 'none';
   doubleDownButton.style.display= 'none';
-  dealButton.style.display = 'block';
+  dealButton.style.display = 'inline-block';
 }
 
 function dealDebug(){
@@ -186,9 +190,9 @@ function dealDebug(){
   var playerTotalDisplayLeft =document.getElementById('player-total-left');
   var firstCardValue;
   function displayButtons(){
-    doubleDownButton.style.display='block';
-    hitButton.style.display = 'block';
-    standButton.style.display='block';
+    doubleDownButton.style.display='inline-block';
+    hitButton.style.display = 'inline-block';
+    standButton.style.display='inline-block';
   }
   function setFirstCardValue(){
     firstCardValue=cardValue;
@@ -197,7 +201,7 @@ function dealDebug(){
   function splitBlackJackCheck(){
     if (playerTotal/2==firstCardValue||(firstCardValue=='A'&&playerTotal==12)) {
       splitButtonOn= true;
-      splitButton.style.display='block';
+      splitButton.style.display='inline-block';
     }
     if (playerTotal==21) {
       blackJack();
@@ -227,9 +231,9 @@ function deal(){
   var playerTotalDisplayLeft =document.getElementById('player-total-left');
   var firstCardValue;
   function displayButtons(){
-    doubleDownButton.style.display='block';
-    hitButton.style.display = 'block';
-    standButton.style.display='block';
+    doubleDownButton.style.display='inline-block';
+    hitButton.style.display = 'inline-block';
+    standButton.style.display='inline-block';
   }
   function setFirstCardValue(){
     firstCardValue=cardValue;
@@ -238,7 +242,7 @@ function deal(){
   function splitBlackJackCheck(){
     if (playerTotal/2==firstCardValue||(firstCardValue=='A'&&playerTotal==12)) {
       splitButtonOn= true;
-      splitButton.style.display='block';
+      splitButton.style.display='inline-block';
     }
     if (playerTotal==21) {
       blackJack();
@@ -267,19 +271,20 @@ function bust(){
   if (splitModeOn==false) {
     var faceDownCard =document.getElementsByClassName('cards-player-face-down')[0];
     var dealerTotalDisplay =document.getElementById('dealer-total');
-    gameTextLeft.style.display='block';
+    gameTextLeft.style.display='inline-block';
     standButton.style.display = 'none';
     hitButton.style.display = 'none';
-    dealButton.style.display = 'block';
+    dealButton.style.display = 'inline-block';
     faceDownCard.classList.add('cards-player');
     faceDownCard.innerHTML = faceDownValue;
     faceDownCard.classList.remove('cards-player-face-down');
     dealerTotal+= faceDownValue;
     dealerTotalDisplay.innerHTML = "Total: "+dealerTotal;
   }
-  else{
+  if (mainHandActive==true&&splitModeOn==true){
     changeHands();
   }
+  
 }
 
 function hit(){	
@@ -355,6 +360,68 @@ function hit(){
   	if (playerTotal==21&&playerBlackJack!=true) {
   		stand();
   	}
+  }
+  if(mainHandActive==false) {
+    newCardValue();
+    while (cardValue=='redraw') {
+      newCardValue();
+      if (shoeDone>=(48*decks)) {
+        h1.drawn=0;
+        h2.drawn=0;
+        h3.drawn=0;
+        h4.drawn=0;
+        h5.drawn=0;
+        h6.drawn=0;
+        h7.drawn=0;
+        h8.drawn=0;
+        h9.drawn=0;
+        hj.drawn=0;
+        hq.drawn=0;
+        hk.drawn=0;
+        shoeDone=0;
+      }
+    }
+    if (cardValue==11&&hasAce==true) {
+        cardValue=1;
+    }
+    if (cardValue==11) {
+      if (playerTotalRight<=10) {
+        hasHighAce=true;
+        }
+      if (playerTotalRight>10) {
+        cardValue=1;
+      }
+        hasAce=true;
+    }
+    playerTotalRight+= cardValue;
+  
+    if (hasHighAce==true&&playerTotalRight>21) {
+      playerTotalRight-=10;
+      hasHighAce=false;
+      if (cardValue==11) {
+        hasHighAce=true;
+      }
+    }
+    
+    newCard.classList.add('cards-player');
+    if (cardValue==11||cardValue==1) {
+      cardValue='A';
+    }
+    newCard.innerHTML = cardValue;
+    if (hasHighAce==false||playerTotalRight==21) {
+      playerTotalDisplayRight.innerHTML = "Total: "+playerTotalRight;
+    }
+    if (hasHighAce==true&&playerTotalRight!=21) {
+      playerTotalDisplayRight.innerHTML = "Total: "+playerTotalRight+' or '+(playerTotalRight-10);
+    }
+    right.appendChild(newCard);
+    $(newCard).hide().delay(200).show("slow");
+    if (playerTotalRight>21) {
+      bust();
+    }
+    if (playerTotalRight==21&&playerBlackJack!=true) {
+      stand();
+    }
   }
 }
 
@@ -448,7 +515,7 @@ function stand(){
     standButton.style.display='none';
     hitButton.style.display= 'none';
     splitButton.style.display= 'none';
-    dealButton.style.display= 'block';
+    dealButton.style.display= 'inline-block';
     doubleDownButton.style.display='none';
     faceDownCard.classList.add('cards-player');
     faceDownCard.innerHTML = faceDownValue;
@@ -470,16 +537,20 @@ function split(){
   var playerTotalDisplayLeft= document.getElementById('player-total-left');
   var newCard = document.createElement("div");
   var right = document.getElementById('right');
-  $('#left div:nth-child(1)').remove();
+  $('#left div:nth-child(2)').remove();
   if (playerTotal==13) {
     playerTotal=11;
+    playerTotalRight=11
   }
   else{
     playerTotal=(playerTotal/2);
+    playerTotalRight=(playerTotal/2);
   }
   playerTotalDisplayLeft.innerHTML = "Total: "+playerTotal;
+  playerTotalDisplayRight.innerHTML = "Total: "+playerTotal;
   splitModeOn = true;
   newCard.innerHTML = cardValue;
+  console.log(cardValue);
   splitButton.style.display='none';
   newCard.classList.add('cards-player');
   right.appendChild(newCard);
@@ -490,6 +561,10 @@ function changeHands(){
   var left = document.getElementById('left');
   splitModeOn=false;
   mainHandActive=false;
+  if (playerTotalRight!=11) {
+    hasAce=false;
+    hasHighAce=false;
+  }
   right.classList.add('active');
   left.classList.remove('active');
 }
@@ -499,3 +574,5 @@ function doubleDown(){
   hit();
   stand();
 }
+
+})();

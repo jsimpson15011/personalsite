@@ -53,8 +53,8 @@ function animationResize(){
 	if (bubbleWidth*3<$(window).width()) {
 		homeAnimation.setAttribute("style","width:"+(((bubbleWidth*3)+50))+ "px");
 	}
-	else{
-		homeAnimation.setAttribute("style","width:97%");
+	if ($(window).width()<1160) {
+		homeAnimation.setAttribute("style","width:95%");
 	}
 	if (animationStopped==false){
 		homeAnimation.style.overflowY = 'hidden';
