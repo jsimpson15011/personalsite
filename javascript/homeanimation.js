@@ -17,7 +17,7 @@ var changedButtonText;
 var bubbleWidth= $bubbles.width();
 var bubbleHeight= $bubbles.height();
 var mq = window.matchMedia( "(min-width: 1200px)" );
-
+console.log(changedButtonText);
 animationResize();
 window.onresize= function(){animationResize()};
 $bubbles.hide();
@@ -203,10 +203,16 @@ $bubbles.hover(function() {
 
 bubbleShow();
 var bubbleShowInterval = setInterval(bubbleShowTimer, 4500);
-window.addEventListener("blur",function(){clearInterval(bubbleShowInterval)},false);
-window.addEventListener("focus",function(){bubbleShowInterval},false);
+window.addEventListener("blur",function(){
+		animationStopped=true;
+	},false);
+window.addEventListener("focus",function(){
+	if (changedButtonText=='nothing'||changedButtonText==undefined) {
+		animationStopped=false;
+	}
+},false);
 function bubbleShowTimer(){
-	console.log('bubble show timer fired')
+	console.log(animationStopped)
 	if (animationStopped==false) {
 		bubbleShow();
 	}

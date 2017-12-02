@@ -205,10 +205,10 @@ h1{
 	box-shadow: 50px 20px #0071bc;
 }
 #home-animation{
-	background: url("../images/background-bubbles.jpg");
+	background: url("../images/backgroundbubbles.png");
+	background-size: 42%;
 	overflow: scroll;
 	overflow-x:hidden;
-	background-size: 100%;
 	display: inline-block;
 	background-color: #231f20;
 	position: relative;
