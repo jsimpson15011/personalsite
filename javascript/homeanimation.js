@@ -3,7 +3,6 @@
 Created by Joseph Simspon 2017
 */
 (function (){
-
 var homeAnimation= document.getElementById('home-animation');
 var showGraphicDesign= document.getElementById('animation-show-design');
 var showWebDevelopment= document.getElementById('animation-show-development');
@@ -203,8 +202,11 @@ $bubbles.hover(function() {
 });
 
 bubbleShow();
-setInterval(bubbleShowTimer, 4500);
+var bubbleShowInterval = setInterval(bubbleShowTimer, 4500);
+window.addEventListener("blur",function(){clearInterval(bubbleShowInterval)},false);
+window.addEventListener("focus",function(){bubbleShowInterval},false);
 function bubbleShowTimer(){
+	console.log('bubble show timer fired')
 	if (animationStopped==false) {
 		bubbleShow();
 	}
