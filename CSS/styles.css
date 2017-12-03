@@ -166,7 +166,6 @@ h1{
 #body-square{
 	position: relative;
 	margin-top: 200px;
-	margin-bottom: 10px;
 	background-color: #231f20;
 	width: 100%;
 	min-height: 1000px;
@@ -223,6 +222,11 @@ h1{
 	max-height: 90%;
 	color: white;
 	box-shadow: 25px 20px #6dc065;
+	font-size: 24px;
+}
+.more-info-box h1{
+	color: #0071bc;
+	font-size: 50px;
 }
 .more-info-box-img-box{
 	align-content: center;
@@ -231,7 +235,8 @@ h1{
 	margin-top: 50px;
 }
 .more-info-img {
-	width: 50vw;
+	width: 60vw;
+	max-width: 1000px;
 	position: relative;
     display: block;
     margin: 0 auto;
@@ -419,7 +424,7 @@ textarea{
 	width: 100%;
 }
 #contact-info-bot{
-	font-size: 20px;
+	font-size: 16px;
 	display: block;
 	width: 100%;
 	background-color: white;
