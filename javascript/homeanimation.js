@@ -217,5 +217,4 @@ function bubbleShowTimer(){
 		bubbleShow();
 	}
 }
-
 })();

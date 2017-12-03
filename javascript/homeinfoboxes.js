@@ -1,9 +1,10 @@
-console.log('its connected');
 
-import React from 'react';
-import ReactDOM from 'react-dom';
+$('html, body').css({//disables scrolling
+    overflow: 'hidden',
+    height: '100%'
+});
 
-ReactDOM.render(
-  <h1>Hello, world!</h1>,
-  document.getElementById('root')
-);
+$('html, body').css({//returns scrolling
+    overflow: 'auto',
+    height: 'auto'
+});

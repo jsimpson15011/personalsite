@@ -14,7 +14,7 @@ for (var i = 0; i < $closeButton.length; i++) {
 		$closeButton[i].addEventListener('click',function(e){
 		e.preventDefault();
 		greyOut.classList.add('hidden');
-		contactForm.classList.add('hidden');	
+		this.parentElement.classList.add('hidden');	
 	});
 }
 greyOut.addEventListener('click',function(){
