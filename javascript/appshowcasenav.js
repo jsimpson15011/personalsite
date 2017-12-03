@@ -6,6 +6,9 @@ Created by Joseph Simspon 2017
 const $appExplanation = $('.app-explanation');
 const $apps = $('.app');
 const showAppButton = document.getElementsByClassName('app-showcase-nav');
+var linkClicked = getParameterByName('app');
+
+console.log(linkClicked);
 
 $apps.hide();
 $appExplanation.hide();
@@ -17,6 +20,16 @@ for (var i = 0; i < showAppButton.length; i++) {
 }
 
 showAppButton[0].removeEventListener('click',showApp,true);
+
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
 
 function showApp(){
 	var buttonText = this.innerText.replace(/\s/g, "-").toLowerCase();

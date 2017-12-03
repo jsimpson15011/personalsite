@@ -19,12 +19,17 @@
 
 <link href="css/styles.css" type="text/css"
 rel="stylesheet"/>
+<?php
+	$data = 'ajax is confusing';
+	$test = json_encode($data);
+	parse_str($_SERVER['QUERY_STRING']);
+	echo json_encode($app);
+?>
 <title>Joseph Simpson Designer|Developer</title>
 <img src="images/logo.png" id="logo">
 <h1 id="title-text-1">joseph<span class="green-text">Simpson</span></h1>
 <h1 id="title-text-2">Designer</h1>
 <h1 id="title-text-3">Developer</h1>
-
 </head>
 <div id="root"></div>
 <body>
@@ -1339,7 +1344,6 @@ rel="stylesheet"/>
 <script type="text/javascript" src="javascript/blackjack.js"></script>
 <script type="text/javascript" src="javascript/calendar.js"></script>
 <script type="text/javascript" src="javascript/appshowcasenav.js"></script>
-<script type="text/javascript" src="javascript/closewindow.js"></script>
 </body>
 
 </html>
