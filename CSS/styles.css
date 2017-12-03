@@ -310,8 +310,6 @@ h1{
     position: absolute;
     top: 50%;
     left: 46%;
-    padding-top: 4vw;
-    padding-bottom: 5vw;
     transform: translate(-50%, -63%);
     color: white;
     background-color: #231f20;
