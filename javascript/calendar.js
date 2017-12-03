@@ -8,13 +8,18 @@ var dateCalcArray =
 [dateCalcWithLeap(5),dateCalcWithLeap(1),dateCalc(1),dateCalc(4)
 ,dateCalc(6),dateCalc(2),dateCalc(4),dateCalc(0),
 dateCalc(3),dateCalc(5),dateCalc(1),dateCalc(3)];//This array runs the date calc function where n is the day of the week of the first of each month in 2010
-
 //the following block displays the current year
 var monthLabelBox=document.getElementsByClassName('month-label')[0];
 var yearLabel = document.createElement('div');
 yearLabel.innerHTML = date.getFullYear();
 yearLabel.classList.add('year-name');
 monthLabelBox.appendChild(yearLabel);
+if (month==0) {
+	prev.style.display='none';
+}
+if (month==11) {
+	next.style.display='none';
+}
 
 function dateCalc(n){//Calculates how many date boxes need to be added to beggining of month. March through December
 	var year = date.getFullYear();
@@ -148,6 +153,9 @@ function showMonth() { //Shows the Current Month
 	}
 };
 function showNextMonth(){
+	if (prev.style.display='none') {
+		prev.style.display='block';
+	}
 	month+=1;
 	if(month>10){
 		next.style.visibility='hidden';
@@ -167,6 +175,9 @@ function showNextMonth(){
 	showMonth();
 }
 function showPrevMonth(){
+	if (next.style.display='none') {
+		next.style.display='block';
+	}
 	month-=1;
 	if(month<1){
 	prev.style.visibility='hidden';

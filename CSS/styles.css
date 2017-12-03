@@ -217,23 +217,22 @@ h1{
 	z-index: 4;
 	background-color: #231f20;
 	border:solid white 5px;
-	margin-left: 10%;
-	margin-top: 10%;
-	width: 80%;
-	height: 80%;
+	margin-left: 5%;
+	margin-top: 25px;
+	width: 90%;
+	max-height: 90%;
 	color: white;
+	box-shadow: 25px 20px #6dc065;
 }
 .more-info-box-img-box{
 	align-content: center;
-	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 10px;
-	border: white solid 5px;
+	margin-top: 50px;
 }
 .more-info-img {
+	width: 50vw;
 	position: relative;
-	width: 50%;
     display: block;
     margin: 0 auto;
 }
@@ -423,7 +422,6 @@ textarea{
 	font-size: 20px;
 	display: block;
 	width: 100%;
-	margin-top: 20px;
 	background-color: white;
 	position: absolute;
 	text-align: center;
