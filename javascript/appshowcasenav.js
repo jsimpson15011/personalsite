@@ -26,13 +26,8 @@ if (linkClicked!=null) {
 	$apps.hide();
 	switch(linkClicked){
 		case 'blackjack':
-			$('.'+linkClicked).show();
-			$appExplanation.eq(0).show();
-			for (var i = 0; i < showAppButton.length; i++) {
-			showAppButton[i].addEventListener('click',showApp,true);
-			}
-			showAppButton[0].classList.add('disabled');
-			showAppButton[0].removeEventListener('click',showApp,true);
+			$apps.first().show();
+			$appExplanation.first().slideDown();
 			break;
 		case 'calendar':
 			$('.'+linkClicked).show();
