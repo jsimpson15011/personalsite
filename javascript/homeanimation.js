@@ -17,7 +17,6 @@ var changedButtonText;
 var bubbleWidth= $bubbles.width();
 var bubbleHeight= $bubbles.height();
 var mq = window.matchMedia( "(min-width: 1200px)" );
-console.log(changedButtonText);
 animationResize();
 window.onresize= function(){animationResize()};
 $bubbles.hide();
@@ -212,7 +211,6 @@ window.addEventListener("focus",function(){
 	}
 },false);
 function bubbleShowTimer(){
-	console.log(animationStopped)
 	if (animationStopped==false) {
 		bubbleShow();
 	}

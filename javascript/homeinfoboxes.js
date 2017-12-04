@@ -5,8 +5,6 @@ var moreInfo= document.getElementsByClassName('more-info-box');
 var greyOut= document.getElementById('grey-out');
 var bubbleIndex;
 
-window.scrollBy(0,100);
-
 for (var i = 0; i < bubbles.length; i++) {
 	bubbles[i].addEventListener('click',showMoreInfo,false);
 }

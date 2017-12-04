@@ -8,18 +8,43 @@ const $apps = $('.app');
 const showAppButton = document.getElementsByClassName('app-showcase-nav');
 var linkClicked = getParameterByName('app');
 
-console.log(linkClicked);
-
 $apps.hide();
 $appExplanation.hide();
+if (linkClicked==null) {
 $apps.first().show();
 $appExplanation.first().slideDown();
+}
 
 for (var i = 0; i < showAppButton.length; i++) {
 	showAppButton[i].addEventListener('click',showApp,true);
 }
 
 showAppButton[0].removeEventListener('click',showApp,true);
+
+if (linkClicked!=null) {
+	$appExplanation.slideUp();
+	$apps.hide();
+	switch(linkClicked){
+		case 'blackjack':
+			$('.'+linkClicked).show();
+			$appExplanation.eq(0).show();
+			for (var i = 0; i < showAppButton.length; i++) {
+			showAppButton[i].addEventListener('click',showApp,true);
+			}
+			showAppButton[0].classList.add('disabled');
+			showAppButton[0].removeEventListener('click',showApp,true);
+			break;
+		case 'calendar':
+			$('.'+linkClicked).show();
+			$appExplanation.eq(1).show();
+			for (var i = 0; i < showAppButton.length; i++) {
+			showAppButton[i].addEventListener('click',showApp,true);
+			}
+			showAppButton[1].classList.add('disabled');
+			showAppButton[1].removeEventListener('click',showApp,true);
+			break;
+	}
+}
 
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
@@ -32,6 +57,7 @@ function getParameterByName(name, url) {
 }
 
 function showApp(){
+	console.log(this);
 	var buttonText = this.innerText.replace(/\s/g, "-").toLowerCase();
 	$appExplanation.slideUp();
 	$apps.hide();
@@ -42,7 +68,6 @@ function showApp(){
 	}
 	this.classList.add('disabled');
 	this.removeEventListener('click',showApp,true);
-	console.log(buttonText);
 }
 
 })();

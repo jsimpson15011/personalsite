@@ -1,6 +1,5 @@
 (function() {
 
-var test= document.getElementById('test');
 var mainHandActive= true;
 var playerHasSplit= false; 
 var decks=1; //number of decks in game
@@ -196,7 +195,6 @@ function dealDebug(){
   }
   function setFirstCardValue(){
     firstCardValue=cardValue;
-    test.innerHTML = firstCardValue;
   }  
   function splitBlackJackCheck(){
     if (playerTotal/2==firstCardValue||(firstCardValue=='A'&&playerTotal==12)) {
@@ -237,7 +235,6 @@ function deal(){
   }
   function setFirstCardValue(){
     firstCardValue=cardValue;
-    test.innerHTML = firstCardValue;
   }  
   function splitBlackJackCheck(){
     if (playerTotal/2==firstCardValue||(firstCardValue=='A'&&playerTotal==12)) {
@@ -280,6 +277,8 @@ function bust(){
     faceDownCard.classList.remove('cards-player-face-down');
     dealerTotal+= faceDownValue;
     dealerTotalDisplay.innerHTML = "Total: "+dealerTotal;
+    gameTextLeft.style.display='inline-block';
+    gameTextLeft.innerHTML='Bust';
   }
   if (mainHandActive==true&&splitModeOn==true){
     changeHands();
@@ -524,11 +523,34 @@ function stand(){
     while (dealerTotal<17) {
       dealerHit();
     }
-  dealerTotalDisplay.innerHTML = "Total: "+dealerTotal;
+    dealerTotalDisplay.innerHTML = "Total: "+dealerTotal;
+    if ((playerTotal>dealerTotal&&playerTotal<=21)||dealerTotal>21) {
+      leftVictory();    
+    }
+    if (playerTotal<dealerTotal&&dealerTotal<=21) {
+      leftDefeat();
+    }
+    if (playerTotal==dealerTotal) {
+      leftPush();
+    }
   }
   else{
     changeHands();
   }
+}
+
+function leftVictory(){
+  gameTextLeft.style.display='inline-block';
+  gameTextLeft.innerHTML='Win';
+}
+
+function leftDefeat(){
+  gameTextLeft.style.display='inline-block';
+  gameTextLeft.innerHTML='Lose';
+}
+function leftPush(){
+  gameTextLeft.style.display='inline-block';
+  gameTextLeft.innerHTML='Push';
 }
 
 function split(){

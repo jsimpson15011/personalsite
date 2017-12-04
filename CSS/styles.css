@@ -240,6 +240,7 @@ h1{
 	position: relative;
     display: block;
     margin: 0 auto;
+    margin-bottom: 15px;
 }
 .more-info-text {
 	position: relative;
@@ -547,7 +548,7 @@ textarea{
 #split{
 	z-index: 1;
 	float: left;
-	display: inline-block;
+	display: none;
 	color: white;
 	position: relative;
 	height: 90px;
