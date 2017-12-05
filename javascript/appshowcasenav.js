@@ -20,7 +20,8 @@ for (var i = 0; i < showAppButton.length; i++) {
 }
 
 showAppButton[0].removeEventListener('click',showApp,true);
-
+console.log(JSON.stringify(linkClicked));
+console.log(linkClicked);
 if (linkClicked!=null) {
 	$appExplanation.slideUp();
 	$apps.hide();
@@ -48,7 +49,7 @@ function getParameterByName(name, url) {
         results = regex.exec(url);
     if (!results) return null;
     if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
+    return results[2].replace(/\+/g, " ").replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
 }
 
 function showApp(){
