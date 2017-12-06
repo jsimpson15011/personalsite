@@ -2,7 +2,7 @@
 /*
 Created by Joseph Simspon 2017
 */
-(function (){
+$( window ).on( "load", function() {
 var homeAnimation= document.getElementById('home-animation');
 var showGraphicDesign= document.getElementById('animation-show-design');
 var showWebDevelopment= document.getElementById('animation-show-development');
@@ -215,4 +215,4 @@ function bubbleShowTimer(){
 		bubbleShow();
 	}
 }
-})();
+});
