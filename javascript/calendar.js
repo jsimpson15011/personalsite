@@ -44,47 +44,47 @@ function dateCalcWithLeap(n){//Calculates how many date boxes need to be added t
 
 //the following block creates the blank boxes that make the first of the month on the correct day of the week
 for (var i = 0; i<dateCalcArray[0]; i++) {
-	createBlankBox(0);
+	createDateBox(0);
 }
 for (var i = 0; i<dateCalcArray[1]; i++) {
-	createBlankBox(1);
+	createDateBox(1);
 }
 for (var i = 0; i<dateCalcArray[2]; i++) {
-	createBlankBox(2);
+	createDateBox(2);
 }
 for (var i = 0; i<dateCalcArray[3]; i++) {
-	createBlankBox(3);
+	createDateBox(3);
 }
 for (var i = 0; i<dateCalcArray[4]; i++) {
-	createBlankBox(4);
+	createDateBox(4);
 }
 for (var i = 0; i<dateCalcArray[5]; i++) {
-	createBlankBox(5);
+	createDateBox(5);
 }
 for (var i = 0; i<dateCalcArray[6]; i++) {
-	createBlankBox(6);
+	createDateBox(6);
 }
 for (var i = 0; i<dateCalcArray[7]; i++) {
-	createBlankBox(7);
+	createDateBox(7);
 }
 for (var i = 0; i<dateCalcArray[8]; i++) {
-	createBlankBox(8);
+	createDateBox(8);
 }
 for (var i = 0; i<dateCalcArray[9]; i++) {
-	createBlankBox(9);
+	createDateBox(9);
 }
 for (var i = 0; i<dateCalcArray[10]; i++) {
-	createBlankBox(10);
+	createDateBox(10, 'cal-body');
 }
 for (var i = 0; i<dateCalcArray[11]; i++) {
-	createBlankBox(11);
+	createDateBox(11,'cal-void',dateCalcArray[11]);
 }
 
-function createBlankBox(m){
+function createDateBox(monthInt,boxClass,amount){
 	var calBox = document.createElement('DIV');//This is the blank box
 	var monthContainer = document.getElementsByClassName('month');
-	calBox.classList.add('cal-void');
-	monthContainer[m].insertBefore(calBox, monthContainer[m].children[7]);//children 7 inserts the blank after the day of the week labels
+	calBox.classList.add(boxClass);
+	monthContainer[monthInt].insertBefore(calBox, monthContainer[monthInt].children[7]);//children 7 inserts the blank after the day of the week labels
 }
 
 next.addEventListener('click',showNextMonth,false);
@@ -96,7 +96,7 @@ function showMonth() { //Shows the Current Month
 	switch (month) {
 		case 0:
 			for (var i = 0; i<dateCalcArray[0]; i++) {
-			createBlankBox(0);
+			createDateBox(0);
 			}
 			$(monthLabel[0]).fadeIn(500);
 			dayBoxes[0].style.display='block';
