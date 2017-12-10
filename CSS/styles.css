@@ -635,9 +635,8 @@ textarea{
 	position: relative;
 	z-index: 1;
 	top: 0px;
-	font-size: 3vw;
+	font-size: 4vw;
 	line-height: 130px;
-	font-family: georgia;
 	color: #1a1a1a;
 	background-color: 273326;
 	color: white;
@@ -661,7 +660,11 @@ textarea{
 	margin-right: auto;
 	width: 100%;
 }
-
+#week-label-container{
+	position: sticky;
+	width: 100%;
+	height: 50px;
+}
 .week-label{
 	position: sticky;
 	overflow: hidden;
@@ -669,19 +672,23 @@ textarea{
 	width: 14%;
 	height: 50px;
 	border: 2px solid black;
-	background-color: 9dad87;
-	font-size: 18px;
+	background-color: #9dad87;
+	font-size: 1.5vw;
 	text-align: center;
 	line-height: 50px;
 	float: left;
 }
-
+.calendar{
+	height: 80%;
+}
 .cal-body{
+	padding: 5px;
 	width: 14%;
 	height: 10vw;
 	background-color: white;
 	border: 2px solid black;
 	float: left;
+	font-size: 2.5vw;
 }
 
 .cal-void{

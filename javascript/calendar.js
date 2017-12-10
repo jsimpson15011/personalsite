@@ -4,6 +4,7 @@ var date = new Date(); //this date is used to get the current month and the curr
 var month = date.getMonth(); //This is the current month
 var next = document.getElementById('next-month');
 var prev = document.getElementById('prev-month');
+var year = date.getFullYear();
 var dateCalcArray = 
 [dateCalcWithLeap(5),dateCalcWithLeap(1),dateCalc(1),dateCalc(4)
 ,dateCalc(6),dateCalc(2),dateCalc(4),dateCalc(0),
@@ -11,7 +12,16 @@ dateCalc(3),dateCalc(5),dateCalc(1),dateCalc(3)];//This array runs the date calc
 //the following block displays the current year
 var monthLabelBox=document.getElementsByClassName('month-label')[0];
 var yearLabel = document.createElement('div');
-yearLabel.innerHTML = date.getFullYear();
+var numberOfDaysInFeb
+
+if (year%4==0) {
+	numberOfDaysInFeb=29;
+}
+else{
+	numberOfDaysInFeb=28;
+}
+
+yearLabel.textContent = year;
 yearLabel.classList.add('year-name');
 monthLabelBox.appendChild(yearLabel);
 if (month==0) {
@@ -22,7 +32,6 @@ if (month==11) {
 }
 
 function dateCalc(n){//Calculates how many date boxes need to be added to beggining of month. March through December
-	var year = date.getFullYear();
 	var calc = n+(year-2010)+(Math.floor((year-2008)/4));//adds one for every leap year since 2010
 	if(calc>6){
 		for (calc; calc > 6; ) {
@@ -32,7 +41,6 @@ function dateCalc(n){//Calculates how many date boxes need to be added to beggin
 	return calc;
 }
 function dateCalcWithLeap(n){//Calculates how many date boxes need to be added to beggining of month. January and Feb.
-	var year = date.getFullYear();
 	var calc = n+(year-2010)+(Math.floor((year-2009)/4));//adds one for every year after leap year since 2010
 	if(calc>6){
 		for (calc; calc > 6; ) {
@@ -42,49 +50,54 @@ function dateCalcWithLeap(n){//Calculates how many date boxes need to be added t
 	return calc;
 }
 
-//the following block creates the blank boxes that make the first of the month on the correct day of the week
-for (var i = 0; i<dateCalcArray[0]; i++) {
-	createDateBox(0);
-}
-for (var i = 0; i<dateCalcArray[1]; i++) {
-	createDateBox(1);
-}
-for (var i = 0; i<dateCalcArray[2]; i++) {
-	createDateBox(2);
-}
-for (var i = 0; i<dateCalcArray[3]; i++) {
-	createDateBox(3);
-}
-for (var i = 0; i<dateCalcArray[4]; i++) {
-	createDateBox(4);
-}
-for (var i = 0; i<dateCalcArray[5]; i++) {
-	createDateBox(5);
-}
-for (var i = 0; i<dateCalcArray[6]; i++) {
-	createDateBox(6);
-}
-for (var i = 0; i<dateCalcArray[7]; i++) {
-	createDateBox(7);
-}
-for (var i = 0; i<dateCalcArray[8]; i++) {
-	createDateBox(8);
-}
-for (var i = 0; i<dateCalcArray[9]; i++) {
-	createDateBox(9);
-}
-for (var i = 0; i<dateCalcArray[10]; i++) {
-	createDateBox(10, 'cal-body');
-}
-for (var i = 0; i<dateCalcArray[11]; i++) {
-	createDateBox(11,'cal-void',dateCalcArray[11]);
-}
+createDateBox(0,'cal-body',31);
+createDateBox(0,'cal-void',dateCalcArray[0]);
+
+createDateBox(1,'cal-body',numberOfDaysInFeb);
+createDateBox(1,'cal-void',dateCalcArray[1]);
+
+createDateBox(2,'cal-body',31);
+createDateBox(2,'cal-void',dateCalcArray[2]);
+
+createDateBox(3,'cal-body',30);
+createDateBox(3,'cal-void',dateCalcArray[3]);
+
+createDateBox(4,'cal-body',31);
+createDateBox(4,'cal-void',dateCalcArray[4]);
+
+createDateBox(5,'cal-body',30);
+createDateBox(5,'cal-void',dateCalcArray[5]);
+
+createDateBox(6,'cal-body',31);
+createDateBox(6,'cal-void',dateCalcArray[6]);
+
+createDateBox(7,'cal-body',31);
+createDateBox(7,'cal-void',dateCalcArray[7]);
+
+createDateBox(8,'cal-body',30);
+createDateBox(8,'cal-void',dateCalcArray[8]);
+
+createDateBox(9,'cal-body',31);
+createDateBox(9,'cal-void',dateCalcArray[9]);
+
+createDateBox(10,'cal-body',30);
+createDateBox(10,'cal-void',dateCalcArray[10]);
+
+createDateBox(11,'cal-body',31);
+createDateBox(11,'cal-void',dateCalcArray[11]);
+
 
 function createDateBox(monthInt,boxClass,amount){
-	var calBox = document.createElement('DIV');//This is the blank box
 	var monthContainer = document.getElementsByClassName('month');
-	calBox.classList.add(boxClass);
-	monthContainer[monthInt].insertBefore(calBox, monthContainer[monthInt].children[7]);//children 7 inserts the blank after the day of the week labels
+	for (var i = 0; i < amount; i++) {
+		var calBox = document.createElement('DIV');//This is the blank box
+		calBox;
+		calBox.classList.add(boxClass);
+		if (boxClass=='cal-body') {
+			calBox.textContent= amount-i;
+		}
+		monthContainer[monthInt].insertBefore(calBox, monthContainer[monthInt].children[7]);//children 7 inserts the blank after the day of the week labels
+	}
 }
 
 next.addEventListener('click',showNextMonth,false);
@@ -95,9 +108,6 @@ function showMonth() { //Shows the Current Month
 	var dayBoxes = document.getElementsByClassName('month');
 	switch (month) {
 		case 0:
-			for (var i = 0; i<dateCalcArray[0]; i++) {
-			createDateBox(0);
-			}
 			$(monthLabel[0]).fadeIn(500);
 			dayBoxes[0].style.display='block';
 		break;
