@@ -318,6 +318,7 @@ h1{
     opacity: 0;
 }
 .small-text{
+	z-index: -1;
 	font-size: calc(12px + .4vw);
 }
 /*Use this if phone text is too small

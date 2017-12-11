@@ -6,16 +6,20 @@ var greyOut= document.getElementById('grey-out');
 var bubbleIndex;
 
 for (var i = 0; i < bubbles.length; i++) {
-	bubbles[i].addEventListener('click',showMoreInfo,false);
+	bubbles[i].addEventListener('click',function(e){showMoreInfo(e)},false);
 }
 greyOut.addEventListener('click',function(e){hideMoreInfo(e)},false);
-function showMoreInfo() {
+function showMoreInfo(e) {
 	var rawBubbleIndex = 0;
-	var child = this;
+	const targetClass = e.target.classList.value;
+	if (targetClass =='small-text') {
+		$(e.target).parent().siblings('.more-info-box').removeClass('hidden');
+	}
+	console.log(targetClass);
 	scrollPosition = window.pageYOffset;
-	while( (child = child.previousSibling) != null ) 
+	/*while( (child = child.previousSibling) != null ) 
   	rawBubbleIndex++;
-  	bubbleIndex=(rawBubbleIndex-3)/2;
+  	bubbleIndex=(rawBubbleIndex-3)/2;*/
 	moreInfo[bubbleIndex].classList.remove('hidden');
 	greyOut.classList.remove('hidden');
 
@@ -27,7 +31,7 @@ function showMoreInfo() {
 
 function hideMoreInfo(e) {
 	if (e.target=='<div id="grey-out" class="hidden"></div>') {
-		console.log('its grey');
+		console.log('e.target');
 	}
 	console.log($(e.target).attr('id'));
 	moreInfo[bubbleIndex].classList.add('hidden');
