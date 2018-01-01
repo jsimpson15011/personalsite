@@ -57,7 +57,7 @@ function animationResize(){
 	if (animationStopped==false){
 		homeAnimation.style.overflowY = 'hidden';
 	}
-	return this;
+	
 }
 function stopShow(typeOfBubble,buttonName){
 	var changedButton= document.getElementsByClassName('changedButton')[0];
