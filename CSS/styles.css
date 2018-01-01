@@ -259,10 +259,8 @@ h1{
 	z-index: 1;
 	margin-left: 25px;
 	margin-top: 80px;
-	box-shadow: 25px 20px #6dc065;
-	height: 50vw;
+	height: 100vh;
 	min-height: 800px;
-	border: solid #0071bc 7px;
 }
 .home-animation-btn-title{
 	font-size: calc(10px + 1.5vw);
