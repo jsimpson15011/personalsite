@@ -538,8 +538,6 @@ textarea{
 	height: 55vw;
 	margin-bottom: 200px;
 	margin-top: 80px;
-	margin-left: 10px;
-	margin-right: auto;
 	background-color: green;
 	border: 5px solid white;
 	min-height: 600px;
@@ -746,4 +744,8 @@ textarea{
 #next-month:hover, #prev-month:hover{
 	opacity: 1;
 	cursor: pointer;
+}
+/*Calculator below this line*/
+.calculator{
+	z-index: 5;
 }
