@@ -13,10 +13,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
-<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-
 <link href="css/styles.css" type="text/css"
 rel="stylesheet"/>
 
@@ -72,16 +68,49 @@ rel="stylesheet"/>
 					</ul>
 				</nav>
 			</div>
-			<div class="col-lg-4 col-xs-8" id="side-text-container">
-				<img src="images/me.jpg" id="picture-of-me"><h1>Biography</h1>Self-starter who strives for perfection no matter the situation. Proven communication skills with over two years of experience with clients that demand only excellence. More than one year of self-taught web development skills coupled with four years of formal design education come together to create a developer ready to make an immediate impact. At the core of all this is an unquenchable thirst to always be learning and improving.<p><h2>Skills</h2>
+			<div class="col-xl-4 col-lg-12" id="side-text-container">
+				<img src="images/me.jpg" id="picture-of-me"><br /><br />A designer with proven communication skills with over two years of experience with clients that demand only excellence. More than one year of  web development skills coupled with four years of formal design education come together to create a developer ready to make an immediate impact for you.
 				<ul>
-					<h3>Web Development</h3>
-					<li>Strong understanding of HTML, CSS, JavaScript, and jQuery.</li>
-					<li>Proficient knowledge of React, GIT, PHP MySQL, and Bootstrap.</li>
-					<h3>Design</h3>
+					<h3 class="skill-icons-header">Skills</h3>
+					<h3 class="skill-icons-sub-header">Web Development</h3>
+					<h3 class="skill-icons-text">Advanced</h3>
+					<div class="skill-icons">
+						<img style="width:100%" src="images/HTML5.png">
+						<h4 class="skill-icons-labels">HTML5</h4>
+					</div>					
+					<div class="skill-icons">
+						<img style="width:100%" src="images/CSS3.png">
+						<h4 class="skill-icons-labels">CSS3</h4>
+					</div>
+					<div class="skill-icons">
+						<img style="width:100%" src="images/JavaScript.png">
+						<h4 class="skill-icons-labels">JavaScript</h4>
+					</div>
+					<div class="skill-icons">
+						<img style="width:100%" src="images/jQuery.png">
+						<h4 class="skill-icons-labels">jQuery</h4>
+					</div>
+					<div class="skill-icons">
+						<img style="width:100%" src="images/git.png">
+						<h4 class="skill-icons-labels">git</h4>
+					</div>
+					<div class="skill-icons">
+						<img style="width:100%" src="images/gulp.png">
+						<h4 class="skill-icons-labels">Gulp</h4>
+					</div>
+					<h3 class="skill-icons-text">Proficient</h3>
+					<div class="skill-icons">
+						<img style="width:100%" src="images/react.png">
+						<h4 class="skill-icons-labels">React</h4>
+					</div>
+					<div class="skill-icons">
+						<img style="width:100%" src="images/php.png">
+						<h4 class="skill-icons-labels">PHP</h4>
+					</div>
+					<h3 class="skill-icons-sub-header">Design</h3>
 					<li>Four years of experience with Adobe Creative Suite (Photoshop, Illustrator, InDesign)</li>
 					<li>Four years of combined academic and professional experience creating construction details and layouts to communicate concepts to a wide variety of clients (e.g. contractors, engineers, architects etc.)</li>
-					<h3>Other Skills</h3>
+					<h3 class="skill-icons-sub-header">Other Skills</h3>
 					<li>Proven ability to work on multiple projects with tight deadlines without sacrificing quality of work.</li>
 					<li>Superb communication skills used with a wide variety of clients to solve complex problems.</li>
 					<li>Incredible eye for detail honed by two years of professional experience where small mistakes can cost the company thousands of dollars.</li>
@@ -119,7 +148,12 @@ rel="stylesheet"/>
 				<div class="more-info-box-img-box"><img class= "more-info-img" src="images/calendar.png"></div>
 				<div class="more-info-text"><h1>Calendar</h2>A simple calendar app created with Javascript and Jquery. Empty calendar dates are dynamically created based on the current year. <a href="appshowcase.html?app=calendar">See App</a></div>
 			</div>
-			<div id="home-animation">
+			<div class="more-info-box hidden">
+				<span class="glyphicon glyphicon-remove-circle close-button"></span>
+				<div class="more-info-box-img-box"><img class= "more-info-img" src="images/calculator.jpg"></div>
+				<div class="more-info-text"><h1>Calculator</h2>A simple calendar app created with Javascript and Jquery. Empty calendar dates are dynamically created based on the current year. <a href="calculator.html">See App</a></div>
+			</div>
+			<div id="home-animation" class="col-lg-4 col-md-12">
 				<div id="home-animation-heading">
 					Project Showcase<br>
 					<div class="btn-group bordered">
@@ -177,9 +211,16 @@ rel="stylesheet"/>
 						(Click for More Info)</span></h3>
 					<img src="images/calbubble.png" class="home-animation-links">
 				</div>
+				<div class="home-animation-container home-animation-development">
+					<h3 class="home-animation-info">Title: <br>
+						<p class="small-text"> Calculator</p>
+						Skills:<br>
+						<span class="small-text">React <br>
+						(Click for More Info)</span></h3>
+					<img src="images/calculatorbubble.png" class="home-animation-links">
+				</div>
 			</div>
 		</div>
-			<div class="background-shapes" id="bottom-rectangle"></div>
 	</div>
 	<div id="contact-info-container">
 		<div id="contact-info-bot"><br>Email: joseph.simpson@jsdesdev.com</div>
