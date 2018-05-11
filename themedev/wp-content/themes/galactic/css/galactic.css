@@ -1,0 +1,70 @@
+html,
+body {
+    margin: 0;
+    color: white;
+    background: #112a3e;
+    font-family: 'sans-serif';
+}
+a{
+    color: white;
+}
+.main{
+    background: black;
+    border: 5px white solid;
+    width: 80%;
+    min-height: 250px;
+    margin-left: 10%;
+    border-radius: 50px 0 50px 0;
+    padding: 25px;
+}
+#main-header{
+    position: sticky;
+    top: -1000px;
+    height: 1200px;
+    width: 100%;
+    margin-top: -50px;
+    background: black url("img/starry-background.png");
+    border-bottom-left-radius: 50px;
+}
+#small-header{
+    position: sticky;
+    top: 200px;
+    width: 100%;
+}
+.fade-in {
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-duration: 6s;
+}
+
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+#main-header-content{
+    background: black;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    border-bottom-left-radius: 50px;
+    opacity: .8;
+}
+
+.margin{
+    height: 150px;
+    width: 100%;
+}
+
+img.alignright { float: right; margin: 0 0 1em 1em; }
+img.alignleft { float: left; margin: 0 1em 1em 0; }
+img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+.alignright { float: right; }
+.alignleft { float: left; }
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }

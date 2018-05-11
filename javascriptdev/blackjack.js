@@ -217,7 +217,7 @@ function dealDebug(){
     firstCardValue=cardValue;
   }  
   function splitBlackJackCheck(){
-    if (playerTotal/2==firstCardValue||(firstCardValue=='A'&&playerTotal==12)) {
+    if (playerTotal/2===firstCardValue||(firstCardValue==='A'&&playerTotal===12)) {
       splitButtonOn= true;
       splitButton.style.display='inline-block';
     }
