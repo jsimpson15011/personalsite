@@ -1,0 +1,87 @@
+/***********************************
+*
+* Staff Entry Styles Below
+*
+************************************/
+.staff-entry{
+    width: 33%;
+    text-align: center;
+}
+.staff-entry p{
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.staff-entry .email-and-name-container{
+    display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+    flex-wrap: wrap;
+}
+.staff-flex-1{
+    -webkit-box-flex: 0;   /* OLD - iOS 6-, Safari 3.1-6 */
+    -webkit-flex: 1;       /* Safari 6.1+. iOS 7.1+, BB10 */
+    -ms-flex: 1;           /* IE 10 */
+    flex: 1 100px;
+}
+
+.staff-flex-2{
+    -webkit-box-flex: 2;   /* OLD - iOS 6-, Safari 3.1-6 */
+    -webkit-flex: 2;       /* Safari 6.1+. iOS 7.1+, BB10 */
+    -ms-flex: 2;           /* IE 10 */
+    flex: 2;               /* NEW, Spec - Firefox, Chrome, Opera */
+}
+.staff-entry .email{
+}
+.staff-entry .name{
+    margin-right: 12px;
+}
+/***********************************
+*
+* Staff Entry Styles Above
+*
+************************************/
+/***********************************
+*
+* Board of Directors Styles Below
+*
+************************************/
+.custom-flex-container{
+    display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+    flex-wrap: wrap;
+}
+.custom-flex-container .staff-flex-1{
+    margin-right: 15px;
+    margin-bottom: 50px;
+    flex-basis: 250px;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    border: solid 1px #33555A;
+}
+/***********************************
+*
+* Board of Directors Styles Above
+*
+************************************/
+/***********************************
+*
+* Header Social Icons styles below
+*
+************************************/
+.header-social-container{
+    margin-top: -20px;
+    margin-right: 300px;
+}
+
+.header-social-container img{
+    width: 45px;
+    margin-right: 20px;
+}
+/***********************************
+*
+* Header Social Icons styles above
+*
+************************************/
